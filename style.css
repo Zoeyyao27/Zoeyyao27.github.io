@@ -5,3 +5,12 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 @media print{.site-header,.footer,.cv-toolbar,.skip-link{display:none!important}.cv-shell{width:100%;margin:0}.cv-section{break-inside:avoid}.cv-pub{break-inside:avoid}body{background:white;color:#222}.cv-top{padding-bottom:10px}.cv-section{margin-top:20px}}
 .cv-pub .cv-contribution{margin:8px 0 10px;color:#455b4b;line-height:1.58}.cv-pub>a+a{margin-left:15px}
+.oral-badge{display:inline-flex;align-items:center;width:max-content;max-width:100%;padding:6px 11px;border:1px solid #d6a648;border-radius:999px;background:#ffe7a0;color:#5a400b;font-size:11px;font-weight:800;letter-spacing:.06em;line-height:1.2;box-shadow:0 2px 0 #d6a648}
+.paper-labels{display:flex;flex-wrap:wrap;align-items:center;gap:9px}.paper-labels .oral-badge{margin:0}.conference-card .paper-labels+h3{margin-top:23px}
+.publication .oral-badge,.cv-pub .oral-badge{margin:0 0 9px}
+.featured-figure{max-width:850px;margin:25px auto 0}.featured-figure a,.pub-visual,.cv-figure a{display:block;max-width:100%;overflow:hidden;border-radius:14px;background:#fff;border:1px solid #dce7d9}
+.featured-figure img,.pub-visual img,.cv-figure img{display:block;width:100%;height:auto;object-fit:contain}
+.featured-figure figcaption{margin-top:8px;text-align:center;color:#e4eecf;font-size:12px}
+.pub-visual{width:min(100%,480px);margin-top:16px}.pub-visual:hover,.cv-figure a:hover,.featured-figure a:hover{border-color:#8bb46d}
+.cv-figure{width:min(100%,620px);margin:14px 0 3px}.cv-figure figcaption{color:var(--muted);font-size:11px;margin-top:5px}
+@media print{.cv-figure{display:none!important}}
