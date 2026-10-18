@@ -29,3 +29,4 @@ body:not(.cv-page) :is(.hero h1,.section h2,.emnlp-section h2,.about-section h2,
 @media(max-width:650px){body:not(.cv-page){--type-body:15px;--type-heading:22px;--type-display:40px}.hero-credential{grid-template-columns:84px 1fr}.hero-contact{align-items:flex-start}.hero-contact .button{width:100%}.hero-actions{gap:16px}}
 .paper-footer a{white-space:nowrap}
 @media(max-width:650px){.paper-footer{align-items:flex-start;flex-direction:column;gap:8px}}
+.hero-resources{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:20px}.hero-resources .scholar-stat{margin:0}.hero-cv-link{color:var(--green);font-size:var(--type-body);font-weight:700;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
