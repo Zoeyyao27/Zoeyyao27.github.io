@@ -21,7 +21,7 @@
     en: {
       kicker: 'GIMFLOW · A 90-SECOND LISTENING SPACE',
       enter: 'Enter the experience ↗',
-      gateHint: 'Move or touch the image to reveal its color. Music starts when you enter.',
+      gateHint: 'Hover over or touch the artwork to see it shift. Music starts when you enter.',
       scrollCue: 'SCROLL TO READ ↓',
       ready: 'Ready to listen',
       loading: 'Loading music…',
@@ -44,12 +44,13 @@
       play: 'Play music',
       pause: 'Pause music',
       credits: 'Music sources',
-      creditsIntro: 'Arranged from two recordings by these artists:'
+      creditsIntro: 'Arranged from two recordings by these artists:',
+      inspiration: 'Design inspired by'
     },
     zh: {
       kicker: 'GIMFLOW · 90 秒聆听空间',
       enter: '进入梦境 ↗',
-      gateHint: '移动鼠标或触碰画面，即可看见色彩；点击进入后音乐开始。',
+      gateHint: '将鼠标移到画面上或轻触画面，形状便会舒展；点击进入后音乐开始。',
       scrollCue: '向下滑动阅读 ↓',
       ready: '准备聆听',
       loading: '音乐加载中…',
@@ -72,7 +73,8 @@
       play: '播放音乐',
       pause: '暂停音乐',
       credits: '音乐来源',
-      creditsIntro: '由两段音乐素材编排，原曲来自以下创作者：'
+      creditsIntro: '由两段音乐素材编排，原曲来自以下创作者：',
+      inspiration: '设计灵感来自'
     }
   };
 
@@ -119,6 +121,7 @@
     element('homeLink').textContent = copy.home;
     element('creditsLabel').textContent = copy.credits;
     element('creditsIntro').textContent = copy.creditsIntro;
+    element('inspirationLabel').textContent = copy.inspiration;
     element('volumeLabel').textContent = copy.volume;
     element('controlsLabel').textContent = copy.controls;
     retry.textContent = copy.retry;
@@ -193,6 +196,7 @@
     gateway.hidden = true;
     document.body.classList.remove('is-gated');
     content.inert = false;
+    window.scrollTo(0, 0);
     element('title').focus({ preventScroll: true });
   });
 
