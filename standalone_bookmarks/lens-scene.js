@@ -115,7 +115,7 @@ function startLens(THREE) {
     renderer.setSize(rect.width, rect.height, false);
     uniforms.resolution.value.set(rect.width, rect.height);
     uniforms.squareSize.value = Math.min(Math.max(rect.width * .28, 180), 330, rect.height * .48);
-    if (!target.lengthSq()) {
+    if (!target.lengthSq() || target.x > rect.width || target.y > rect.height) {
       target.set(rect.width * .58, rect.height * .55);
       current.copy(target);
     }
@@ -124,7 +124,10 @@ function startLens(THREE) {
 
   function move(event) {
     const rect = stage.getBoundingClientRect();
-    target.set(event.clientX - rect.left, rect.bottom - event.clientY);
+    target.set(
+      Math.max(0, Math.min(rect.width, event.clientX - rect.left)),
+      Math.max(0, Math.min(rect.height, rect.bottom - event.clientY))
+    );
     schedule();
   }
 
