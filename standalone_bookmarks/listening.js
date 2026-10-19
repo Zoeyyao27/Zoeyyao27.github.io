@@ -21,7 +21,7 @@
     en: {
       kicker: 'GIMFLOW · A 90-SECOND LISTENING SPACE',
       enter: 'Enter the experience ↗',
-      gateHint: 'Music begins when you enter. Headphones are welcome.',
+      gateHint: 'Move or touch the image to reveal its color. Music starts when you enter.',
       scrollCue: 'SCROLL TO READ ↓',
       ready: 'Ready to listen',
       loading: 'Loading music…',
@@ -49,7 +49,7 @@
     zh: {
       kicker: 'GIMFLOW · 90 秒聆听空间',
       enter: '进入梦境 ↗',
-      gateHint: '点击进入后音乐开始。也可以戴上耳机。',
+      gateHint: '移动鼠标或触碰画面，即可看见色彩；点击进入后音乐开始。',
       scrollCue: '向下滑动阅读 ↓',
       ready: '准备聆听',
       loading: '音乐加载中…',
@@ -131,6 +131,8 @@
       element('gateLine').textContent = contentCopy.line;
       element('title').textContent = contentCopy.title;
       element('line').textContent = contentCopy.line;
+      element('gateTip').textContent = contentCopy.tip;
+      element('heroTip').textContent = contentCopy.tip;
       element('encouragement').textContent = contentCopy.encouragement;
       element('imagePrompt').textContent = contentCopy.image;
       const steps = element('steps');
