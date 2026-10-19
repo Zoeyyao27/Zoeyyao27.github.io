@@ -19,4 +19,4 @@ The four temporary listening pages are available directly for QR codes:
 - <https://zoeyyao27.github.io/standalone_bookmarks/low-mood.html>
 - <https://zoeyyao27.github.io/standalone_bookmarks/overload.html>
 
-Each page defaults to English, offers a Chinese toggle, and loads its matching MP3 from the same folder. The homepage links to all four from the GIMFlow conference card. After EMNLP, remove that link group and the `standalone_bookmarks/` folder in a new commit to retire the pages and audio. Existing QR codes will then lead to a 404 page; removal is not automatic.
+Each page defaults to English, offers a Chinese toggle, and loads its matching MP3 from the same folder. The shared `listening.css` and `listening.js` power the design and controls. Every page includes a short reflection, three practical steps, and a link back to the homepage. The homepage links to all four from the GIMFlow conference card. After EMNLP, remove that link group and the `standalone_bookmarks/` folder in a new commit to retire the pages and audio. Existing QR codes will then lead to a 404 page; removal is not automatic.
