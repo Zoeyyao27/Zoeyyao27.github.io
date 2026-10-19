@@ -44,17 +44,17 @@ function startScene(THREE) {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 700 ? 1.35 : 1.75));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.45;
+  renderer.toneMappingExposure = 1.15;
   stage.append(renderer.domElement);
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(42, 1, .1, 100);
   camera.position.z = 9;
-  scene.add(new THREE.AmbientLight(0xffffff, 2.1));
-  const key = new THREE.PointLight(0xffffff, 115);
+  scene.add(new THREE.AmbientLight(0xffffff, 1.15));
+  const key = new THREE.PointLight(0xffffff, 65);
   key.position.set(-3, 4, 5);
   scene.add(key);
-  const fill = new THREE.PointLight(colors[1], 95);
+  const fill = new THREE.PointLight(colors[1], 62);
   fill.position.set(3, -2, 4);
   scene.add(fill);
 
@@ -74,22 +74,22 @@ function startScene(THREE) {
   });
 
   const material = new THREE.MeshPhysicalMaterial({
-    color: 0xffffff,
+    color: colors[0],
     metalness: 0,
     roughness: .075,
     transmission: .95,
     thickness: 1.15,
     ior: 1.37,
+    attenuationColor: new THREE.Color(colors[1]),
+    attenuationDistance: 1.8,
     clearcoat: 1,
     clearcoatRoughness: .04,
     side: THREE.DoubleSide
   });
-  const edge = new THREE.MeshPhysicalMaterial({
-    color: colors[0],
-    metalness: .08,
-    roughness: .19,
+  const edge = new THREE.MeshBasicMaterial({
+    color: colors[1],
     transparent: true,
-    opacity: .28,
+    opacity: .22,
     side: THREE.DoubleSide,
     depthWrite: false
   });
