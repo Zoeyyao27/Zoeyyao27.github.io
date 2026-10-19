@@ -30,3 +30,5 @@ body:not(.cv-page) :is(.hero h1,.section h2,.emnlp-section h2,.about-section h2,
 .paper-footer a{white-space:nowrap}
 @media(max-width:650px){.paper-footer{align-items:flex-start;flex-direction:column;gap:8px}}
 .hero-resources{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:20px}.hero-resources .scholar-stat{margin:0}.hero-cv-link{min-height:64px;gap:12px;background:var(--paper);box-shadow:0 4px 0 #dcebd6;font-size:var(--type-body);white-space:nowrap}
+.gim-listen{margin-top:20px}.conference-card .gim-listen p{margin:0 0 10px;color:var(--dark);font-weight:700}.gim-listen-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.gim-listen-links a{display:flex;align-items:center;min-height:42px;padding:9px 12px;border:1px solid #cfdfce;border-radius:12px;background:var(--paper);color:var(--green);font-size:var(--type-body);font-weight:700;line-height:1.25}.gim-listen-links a:hover{border-color:#91b99a;background:#edf5e9}
+@media(max-width:650px){.gim-listen-links{grid-template-columns:1fr}}

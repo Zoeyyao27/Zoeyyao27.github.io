@@ -9,3 +9,14 @@ The site uses the supplied English CV and portrait. Publication links to ACL Ant
 In the repository, open **Settings → Pages**. Under **Build and deployment**, select **Deploy from a branch**, then choose `main` and `/(root)`. The site URL will be <https://zoeyyao27.github.io/> after deployment finishes.
 
 No build step or package installation is required.
+
+## GIMFlow conference listening pages
+
+The four temporary listening pages are available directly for QR codes:
+
+- <https://zoeyyao27.github.io/standalone_bookmarks/anxiety.html>
+- <https://zoeyyao27.github.io/standalone_bookmarks/loneliness.html>
+- <https://zoeyyao27.github.io/standalone_bookmarks/low-mood.html>
+- <https://zoeyyao27.github.io/standalone_bookmarks/overload.html>
+
+Each page defaults to English, offers a Chinese toggle, and loads its matching MP3 from the same folder. The homepage links to all four from the GIMFlow conference card. After EMNLP, remove that link group and the `standalone_bookmarks/` folder in a new commit to retire the pages and audio. Existing QR codes will then lead to a 404 page; removal is not automatic.
