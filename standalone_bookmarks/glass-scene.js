@@ -86,12 +86,29 @@ function startScene(THREE) {
     clearcoatRoughness: .04,
     side: THREE.DoubleSide
   });
-  const edge = new THREE.MeshBasicMaterial({
-    color: colors[1],
+  const edge = new THREE.ShaderMaterial({
+    uniforms: {
+      colorA: { value: new THREE.Color(colors[0]) },
+      colorB: { value: new THREE.Color(colors[1]) }
+    },
+    vertexShader: `varying vec3 vNormal; varying vec3 vView;
+      void main() {
+        vec4 viewPosition = modelViewMatrix * vec4(position, 1.0);
+        vNormal = normalize(normalMatrix * normal);
+        vView = normalize(-viewPosition.xyz);
+        gl_Position = projectionMatrix * viewPosition;
+      }`,
+    fragmentShader: `uniform vec3 colorA; uniform vec3 colorB;
+      varying vec3 vNormal; varying vec3 vView;
+      void main() {
+        float rim = pow(1.0 - abs(dot(normalize(vNormal), normalize(vView))), 2.0);
+        vec3 tint = mix(colorA, colorB, clamp(vNormal.y * 0.5 + 0.5, 0.0, 1.0));
+        gl_FragColor = vec4(tint, 0.13 + rim * 0.58);
+      }`,
     transparent: true,
-    opacity: .38,
-    side: THREE.DoubleSide,
-    depthWrite: false
+    side: THREE.FrontSide,
+    depthWrite: false,
+    depthTest: false
   });
   const pieces = [];
   const addGlass = (geometry, position, rotation, scale) => {
@@ -104,6 +121,7 @@ function startScene(THREE) {
     glint.position.copy(shape.position);
     glint.rotation.copy(shape.rotation);
     glint.scale.copy(shape.scale).multiplyScalar(1.015);
+    glint.renderOrder = 10;
     glass.add(glint);
     pieces.push({ shape, glint, rotation: [...rotation], position: [...position] });
   };
