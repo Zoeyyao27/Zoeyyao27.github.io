@@ -1,16 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="A quiet figure watching a sunrise over soft hills">
-  <rect width="800" height="800" fill="#dfc5ba"/>
-  <circle cx="515" cy="299" r="161" fill="#f6d280"/>
-  <path d="M0 441c154-84 291-102 430-38 130 60 237 72 370 9v388H0Z" fill="#e4a18d"/>
-  <path d="M0 536c138-62 278-44 414-2 143 45 257 1 386-27v293H0Z" fill="#b66e6b"/>
-  <path d="M0 650c170-55 325-37 474-6 113 23 220 21 326-16v172H0Z" fill="#725d6e"/>
-  <ellipse cx="290" cy="716" rx="188" ry="31" fill="#574b58" opacity=".3"/>
-  <path d="M175 650c10-69 67-126 120-126 70 0 122 74 128 156l-221 18Z" fill="#6b596b"/>
-  <path d="M279 538c-51-17-69-86-39-127 26-35 76-44 113-15 42 33 45 92 8 127Z" fill="#e6a278"/>
-  <path d="M213 458c-18-70 19-116 78-117 59-1 96 43 83 104-33-17-80-12-109-37-8 27-26 40-52 50Z" fill="#353d48"/>
-  <path d="M267 522c38 14 65 7 94-10" fill="none" stroke="#d18b6a" stroke-width="12" stroke-linecap="round"/>
-  <path d="M208 619c-41 16-70 43-78 80m247-75c40 15 73 39 93 67" fill="none" stroke="#e6a278" stroke-width="30" stroke-linecap="round"/>
-  <path d="M587 705V568m0 76c-38-38-67-47-96-45m96-14c39-52 70-59 93-59" fill="none" stroke="#4c735e" stroke-width="11" stroke-linecap="round"/>
-  <path d="M493 600c-7-43-3-65 22-79 27 25 24 50-22 79Zm184-70c-10-45-1-67 25-78 22 29 18 51-25 78Z" fill="#638b6d"/>
-  <path d="M555 571c8-44 24-62 51-61 10 37-3 57-51 61Z" fill="#789d78"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x2=".8" y2="1"><stop stop-color="#36154d"/><stop offset=".45" stop-color="#882a81"/><stop offset="1" stop-color="#e6567e"/></linearGradient>
+    <radialGradient id="sun"><stop stop-color="#fff8bc"/><stop offset=".18" stop-color="#ffd676"/><stop offset=".5" stop-color="#ff9a69" stop-opacity=".78"/><stop offset="1" stop-color="#ff9a69" stop-opacity="0"/></radialGradient>
+    <linearGradient id="fold" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#57246e"/><stop offset=".45" stop-color="#e74c9a"/><stop offset="1" stop-color="#ffb173"/></linearGradient>
+    <linearGradient id="light" x2="1" y2="1"><stop stop-color="#a92d8b"/><stop offset=".42" stop-color="#ff7d84"/><stop offset=".76" stop-color="#ffcc79"/><stop offset="1" stop-color="#fff4b7"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="40"/></filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#sky)"/>
+  <ellipse cx="1050" cy="456" rx="505" ry="430" fill="url(#sun)"/>
+  <path d="M-128 755C137 573 359 668 564 550c139-80 186-243 303-344 168-145 359-128 657-55v288c-286-94-464 14-581 162-157 198-331 244-554 197-201-42-349 20-517 161Z" fill="url(#fold)"/>
+  <path d="M-120 880c183-272 370-352 583-276 203 73 313 40 466-111 182-179 362-228 615-115v308c-257-63-374 85-513 192-196 150-340 165-548 52-160-88-356-37-603 143Z" fill="url(#light)" opacity=".94"/>
+  <path d="M-76 613c318-302 535-254 698-86 104 106 162 111 294 25" fill="none" stroke="#f99ac5" stroke-opacity=".55" stroke-width="61" filter="url(#soft)"/>
+  <ellipse cx="1255" cy="864" rx="492" ry="229" fill="#fff1a9" opacity=".36" filter="url(#soft)"/>
 </svg>

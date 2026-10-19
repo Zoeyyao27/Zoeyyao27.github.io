@@ -1,69 +1,74 @@
 (() => {
   'use strict';
 
-  const $ = (id) => document.getElementById(id);
-  const audio = $('audio');
-  const play = $('play');
-  const seek = $('seek');
-  const status = $('status');
-  const retry = $('retry');
+  const element = (id) => document.getElementById(id);
+  const audio = element('audio');
+  const play = element('play');
+  const seek = element('seek');
+  const status = element('status');
+  const retry = element('retry');
+  const gateway = element('gateway');
+  const content = element('content');
+  const details = element('audioDetails');
   const item = window.GIMFLOW_BOOKMARK_ITEM;
+  const sequence = { anxiety: '01', loneliness: '02', 'low-mood': '03', overload: '04' };
   let lang = localStorage.getItem('gimflow-bookmark-lang') === 'zh' ? 'zh' : 'en';
   let failed = false;
   let loadTimer = null;
+  let playbackAttempt = 0;
 
   const text = {
     en: {
-      intro: 'A small space to pause. Read at your own pace while the music plays.',
-      eyebrow: 'GIMFLOW / LISTENING POSTCARDS',
-      posterAction: 'LISTEN · READ · BREATHE',
-      posterDuration: '90 SECONDS',
-      listeningMark: 'BACKGROUND MUSIC',
-      listeningDescription: 'Let the music accompany the words.',
-      ready: 'Tap to play · about 90 seconds',
-      loading: 'Loading audio, please wait…',
-      playing: 'Listening',
-      paused: 'Paused. Continue whenever you like.',
-      ended: 'The music has ended. Take any feeling with you into the day.',
-      error: 'Audio could not load. Check your connection and try again.',
-      reflectionMark: '01 / REFLECTION',
-      reflectionHeading: 'A thought to keep',
+      kicker: 'GIMFLOW · A 90-SECOND LISTENING SPACE',
+      enter: 'Enter the experience ↗',
+      gateHint: 'Music begins when you enter. Headphones are welcome.',
+      scrollCue: 'SCROLL TO READ ↓',
+      ready: 'Ready to listen',
+      loading: 'Loading music…',
+      playing: 'Music is playing',
+      paused: 'Paused',
+      ended: 'The music has ended',
+      blocked: 'Tap play to begin',
+      error: 'Audio could not load',
+      reflectionMark: '01 / A MOMENT TO KEEP',
+      reflectionHeading: 'Take this with you',
       practiceMark: '02 / GENTLE PRACTICE',
       practiceHeading: 'Three small steps',
       imageryMark: 'AS YOU LISTEN',
       footnote: 'A non-clinical music and imagery experience. It is not a diagnosis or a promise of improvement. No personal information is requested.',
-      source: 'Prearranged by theme · tap to listen',
+      source: 'Prearranged by theme · listen at your own pace',
       home: '← Back to homepage',
       retry: 'Reload audio',
       volume: 'Volume',
+      controls: 'Playback controls',
       play: 'Play music',
       pause: 'Pause music',
       credits: 'Music sources',
       creditsIntro: 'Arranged from two recordings by these artists:'
     },
     zh: {
-      intro: '给自己一点停留的空间。让音乐伴着文字，按照自己的节奏阅读。',
-      eyebrow: 'GIMFLOW / 聆听明信片',
-      posterAction: '聆听 · 阅读 · 呼吸',
-      posterDuration: '约 90 秒',
-      listeningMark: '背景音乐',
-      listeningDescription: '让音乐轻轻陪伴这些文字。',
-      ready: '点一下播放 · 约 90 秒',
-      loading: '音乐加载中，请稍候…',
-      playing: '正在聆听',
-      paused: '已暂停，随时可以继续',
-      ended: '音乐结束了。可以带着刚才的感受继续一天。',
-      error: '音乐加载失败。请检查网络后重试。',
-      reflectionMark: '01 / 片刻停留',
-      reflectionHeading: '留给自己的话',
+      kicker: 'GIMFLOW · 90 秒聆听空间',
+      enter: '进入梦境 ↗',
+      gateHint: '点击进入后音乐开始。也可以戴上耳机。',
+      scrollCue: '向下滑动阅读 ↓',
+      ready: '准备聆听',
+      loading: '音乐加载中…',
+      playing: '音乐正在播放',
+      paused: '已暂停',
+      ended: '音乐已结束',
+      blocked: '点击播放开始',
+      error: '音乐加载失败',
+      reflectionMark: '01 / 留给自己的话',
+      reflectionHeading: '带走这一句话',
       practiceMark: '02 / 温柔地行动',
       practiceHeading: '三个小步骤',
       imageryMark: '聆听时，不妨想象',
       footnote: '这是一段非临床的音乐与意象体验，不代表诊断或疗效。无需输入个人信息。',
-      source: '按主题预先编排 · 扫码播放',
+      source: '按主题预先编排 · 按自己的节奏聆听',
       home: '← 返回个人主页',
       retry: '重新加载音乐',
       volume: '音量',
+      controls: '播放控制',
       play: '播放音乐',
       pause: '暂停音乐',
       credits: '音乐来源',
@@ -84,6 +89,7 @@
       loadTimer = setTimeout(() => {
         failed = true;
         audio.pause();
+        details.open = true;
         retry.hidden = false;
         setStatus('error');
       }, 15000);
@@ -93,45 +99,48 @@
   function paint() {
     const copy = text[lang];
     document.documentElement.lang = lang;
-    $('language').textContent = lang === 'zh' ? 'EN' : '中文';
-    $('language').setAttribute('aria-label', lang === 'zh' ? '切换为英文' : 'Switch to Chinese');
-    $('player').setAttribute('aria-label', lang === 'zh' ? '音乐播放器' : 'Music player');
-    $('imagerySection').setAttribute('aria-label', copy.imageryMark);
-    $('intro').textContent = copy.intro;
-    $('eyebrow').textContent = copy.eyebrow;
-    $('posterAction').textContent = copy.posterAction;
-    $('posterDuration').textContent = copy.posterDuration;
-    $('listeningMark').textContent = copy.listeningMark;
-    $('listeningDescription').textContent = copy.listeningDescription;
-    $('reflectionMark').textContent = copy.reflectionMark;
-    $('reflectionHeading').textContent = copy.reflectionHeading;
-    $('practiceMark').textContent = copy.practiceMark;
-    $('practiceHeading').textContent = copy.practiceHeading;
-    $('imageryMark').textContent = copy.imageryMark;
-    $('footnote').textContent = copy.footnote;
-    $('source').textContent = copy.source;
-    $('homeLink').textContent = copy.home;
-    $('creditsLabel').textContent = copy.credits;
-    $('creditsIntro').textContent = copy.creditsIntro;
-    $('volumeLabel').textContent = copy.volume;
+    element('language').textContent = lang === 'zh' ? 'EN' : '中文';
+    element('language').setAttribute('aria-label', lang === 'zh' ? '切换为英文' : 'Switch to Chinese');
+    element('player').setAttribute('aria-label', lang === 'zh' ? '音乐播放器' : 'Music player');
+    element('imagerySection').setAttribute('aria-label', copy.imageryMark);
+    const kicker = `${copy.kicker} · ${sequence[document.body.dataset.theme] || '01'} / 04`;
+    element('gateKicker').textContent = kicker;
+    element('eyebrow').textContent = kicker;
+    element('enter').textContent = copy.enter;
+    element('gateHint').textContent = copy.gateHint;
+    element('scrollCue').textContent = copy.scrollCue;
+    element('reflectionMark').textContent = copy.reflectionMark;
+    element('reflectionHeading').textContent = copy.reflectionHeading;
+    element('practiceMark').textContent = copy.practiceMark;
+    element('practiceHeading').textContent = copy.practiceHeading;
+    element('imageryMark').textContent = copy.imageryMark;
+    element('footnote').textContent = copy.footnote;
+    element('source').textContent = copy.source;
+    element('homeLink').textContent = copy.home;
+    element('creditsLabel').textContent = copy.credits;
+    element('creditsIntro').textContent = copy.creditsIntro;
+    element('volumeLabel').textContent = copy.volume;
+    element('controlsLabel').textContent = copy.controls;
     retry.textContent = copy.retry;
     seek.setAttribute('aria-label', lang === 'zh' ? '播放进度' : 'Playback progress');
     play.setAttribute('aria-label', copy[audio.paused ? 'play' : 'pause']);
 
     if (item) {
-      const content = item[lang];
-      $('title').textContent = content.title;
-      $('line').textContent = content.line;
-      $('encouragement').textContent = content.encouragement;
-      $('imagePrompt').textContent = content.image;
-      const steps = $('steps');
+      const contentCopy = item[lang];
+      element('gateTitle').textContent = contentCopy.title;
+      element('gateLine').textContent = contentCopy.line;
+      element('title').textContent = contentCopy.title;
+      element('line').textContent = contentCopy.line;
+      element('encouragement').textContent = contentCopy.encouragement;
+      element('imagePrompt').textContent = contentCopy.image;
+      const steps = element('steps');
       steps.replaceChildren();
-      for (const instruction of [content.action, ...content.steps]) {
+      for (const instruction of [contentCopy.action, ...contentCopy.steps]) {
         const step = document.createElement('li');
         step.textContent = instruction;
         steps.append(step);
       }
-      const credits = $('creditsList');
+      const credits = element('creditsList');
       credits.replaceChildren();
       for (const source of item.sources || []) {
         const credit = document.createElement('li');
@@ -143,40 +152,59 @@
         credit.append(link);
         credits.append(credit);
       }
-      document.title = `${content.title} · GIMFlow`;
+      document.title = `${contentCopy.title} · GIMFlow`;
     }
     setStatus(failed ? 'error' : status.dataset.key || 'ready');
   }
 
-  $('language').addEventListener('click', () => {
+  function startAudio() {
+    const attempt = ++playbackAttempt;
+    failed = false;
+    retry.hidden = true;
+    if (audio.ended) audio.currentTime = 0;
+    setStatus('loading');
+    const playback = audio.play();
+    if (playback) {
+      playback.catch((error) => {
+        if (attempt !== playbackAttempt || error.name === 'AbortError') return;
+        if (error.name === 'NotAllowedError') {
+          setStatus('blocked');
+          return;
+        }
+        failed = true;
+        details.open = true;
+        retry.hidden = false;
+        setStatus('error');
+      });
+    }
+  }
+
+  element('language').addEventListener('click', () => {
     lang = lang === 'zh' ? 'en' : 'zh';
     localStorage.setItem('gimflow-bookmark-lang', lang);
     paint();
   });
-  play.addEventListener('click', async () => {
+
+  element('enter').addEventListener('click', () => {
     if (!item) return;
-    if (!audio.paused) {
-      audio.pause();
-      return;
-    }
-    failed = false;
-    setStatus('loading');
-    try {
-      if (audio.ended) audio.currentTime = 0;
-      await audio.play();
-      retry.hidden = true;
-    } catch (_) {
-      failed = true;
-      setStatus('error');
-      retry.hidden = false;
-    }
+    startAudio();
+    gateway.hidden = true;
+    document.body.classList.remove('is-gated');
+    content.inert = false;
+    element('title').focus({ preventScroll: true });
   });
+
+  play.addEventListener('click', () => {
+    if (!item) return;
+    if (audio.paused) startAudio();
+    else audio.pause();
+  });
+
   retry.addEventListener('click', () => {
-    failed = false;
-    retry.hidden = true;
-    setStatus('loading');
     audio.load();
+    startAudio();
   });
+
   audio.addEventListener('playing', () => {
     document.body.classList.add('is-playing');
     setStatus('playing');
@@ -187,7 +215,7 @@
     document.body.classList.remove('is-playing');
     play.textContent = '▶';
     play.setAttribute('aria-label', text[lang].play);
-    if (!audio.ended && !failed) setStatus('paused');
+    if (!audio.ended && !failed && status.dataset.key !== 'blocked') setStatus('paused');
   });
   audio.addEventListener('ended', () => {
     document.body.classList.remove('is-playing');
@@ -199,18 +227,15 @@
   });
   audio.addEventListener('error', () => {
     failed = true;
+    details.open = true;
     retry.hidden = false;
     setStatus('error');
   });
   audio.addEventListener('loadedmetadata', () => {
-    $('duration').textContent = mmss(audio.duration);
-    if (failed) {
-      failed = false;
-      setStatus('ready');
-    }
+    element('duration').textContent = mmss(audio.duration);
   });
   audio.addEventListener('timeupdate', () => {
-    $('elapsed').textContent = mmss(audio.currentTime);
+    element('elapsed').textContent = mmss(audio.currentTime);
     if (Number.isFinite(audio.duration) && audio.duration > 0) {
       seek.value = Math.round(1000 * audio.currentTime / audio.duration);
     }
@@ -220,18 +245,16 @@
       audio.currentTime = audio.duration * Number(seek.value) / 1000;
     }
   });
-  $('volume').addEventListener('input', (event) => {
+  element('volume').addEventListener('input', (event) => {
     audio.volume = Number(event.target.value) / 100;
   });
-  audio.volume = 0.8;
 
+  audio.volume = 0.65;
+  content.inert = true;
   if (!item) {
-    $('title').textContent = lang === 'zh' ? '找不到这个主题' : 'Theme not found';
-    $('intro').textContent = lang === 'zh' ? '请检查书签上的链接。' : 'Check the link on your bookmark.';
-    play.disabled = true;
+    element('gateTitle').textContent = lang === 'zh' ? '找不到这个主题' : 'Theme not found';
+    element('enter').disabled = true;
   } else {
-    document.documentElement.style.setProperty('--theme', item.color);
-    document.documentElement.style.setProperty('--accent', item.accent);
     audio.src = item.audio;
   }
   paint();

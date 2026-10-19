@@ -1,18 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="A person resting beneath a sheltering green arch">
-  <rect width="800" height="800" fill="#d8e8ca"/>
-  <circle cx="605" cy="152" r="82" fill="#f4c365"/>
-  <path d="M0 560C134 486 234 520 351 460c165-86 271-28 449-78v418H0Z" fill="#8cba93"/>
-  <path d="M0 660c180-60 315-27 463-85 143-57 236-25 337-44v269H0Z" fill="#3f775f"/>
-  <path d="M119 459C132 223 252 104 409 104c154 0 275 118 279 341" fill="none" stroke="#fff9e9" stroke-width="26" stroke-linecap="round"/>
-  <path d="M183 455c10-181 102-275 226-275 121 0 212 91 218 270" fill="none" stroke="#b6cfab" stroke-width="16" stroke-linecap="round"/>
-  <ellipse cx="395" cy="657" rx="225" ry="42" fill="#295845" opacity=".27"/>
-  <path d="M329 572c-49 24-86 81-112 142h92l112-89 93 89h92c-37-91-100-143-174-156Z" fill="#224e46"/>
-  <path d="M316 520c24-63 140-86 185-8l35 106-111 34-139-38Z" fill="#f0a66c"/>
-  <path d="M316 528c-30 18-69 64-83 110l35 20 96-69M490 525c40 26 65 59 82 102l-35 23-88-62" fill="none" stroke="#f0a66c" stroke-width="42" stroke-linecap="round"/>
-  <path d="M349 458c-9-57 13-108 62-119 57-13 104 36 97 99l-14 64-111 9Z" fill="#243f37"/>
-  <ellipse cx="424" cy="452" rx="63" ry="73" fill="#e5a57c"/>
-  <path d="M360 425c6-60 45-97 95-86 36 8 57 43 57 73-44 17-105 21-152 13Z" fill="#243f37"/>
-  <path d="M385 491c21 19 56 19 77 0" fill="none" stroke="#995e4d" stroke-width="5" stroke-linecap="round"/>
-  <path d="M160 664c-42-26-68-69-68-124m74 91c-15-47-12-91 7-128m440 144c42-26 68-69 68-124m-74 91c15-47 12-91-7-128" fill="none" stroke="#e7eecf" stroke-width="13" stroke-linecap="round"/>
-  <circle cx="105" cy="215" r="8" fill="#3f775f"/><circle cx="145" cy="183" r="5" fill="#3f775f"/><circle cx="680" cy="264" r="7" fill="#3f775f"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x2="1" y2="1"><stop stop-color="#121b63"/><stop offset=".5" stop-color="#443ba5"/><stop offset="1" stop-color="#043b68"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#a1fff3" stop-opacity=".96"/><stop offset=".38" stop-color="#3af0c6" stop-opacity=".55"/><stop offset="1" stop-color="#3af0c6" stop-opacity="0"/></radialGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0c5b91"/><stop offset=".3" stop-color="#10e0ca"/><stop offset=".62" stop-color="#8ffc86"/><stop offset="1" stop-color="#2a94ee"/></linearGradient>
+    <linearGradient id="violet" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#f864ca"/><stop offset=".48" stop-color="#844fe3"/><stop offset="1" stop-color="#283aaf"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="44"/></filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#sky)"/>
+  <ellipse cx="1040" cy="340" rx="580" ry="500" fill="url(#glow)"/>
+  <path d="M-190 822C129 721 362 847 575 660c218-192 191-502 468-601 144-52 288-27 563 74v338c-213-123-379-155-533-69-188 105-167 377-441 517C333 1072 153 839-190 1063Z" fill="url(#ribbon)"/>
+  <path d="M-156 574C130 307 326 276 492 354c156 73 184 294 340 307 130 10 218-121 327-287 94-142 187-220 381-230v308c-154-25-206 69-300 205-153 221-331 312-518 197-185-114-182-319-363-295C189 581 71 740-156 829Z" fill="url(#violet)" opacity=".92"/>
+  <path d="M-84 743C180 601 330 586 495 662c95 44 137 79 235 76 160-5 282-155 388-284" fill="none" stroke="#9effe3" stroke-opacity=".46" stroke-width="52" filter="url(#soft)"/>
+  <ellipse cx="1170" cy="758" rx="460" ry="188" fill="#0e185e" opacity=".48" filter="url(#soft)"/>
 </svg>

@@ -1,14 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Two illuminated windows facing one another at dusk">
-  <rect width="800" height="800" fill="#b9c9dc"/>
-  <circle cx="610" cy="173" r="90" fill="#f9e8af"/>
-  <path d="M0 470c155-56 246-65 376-31 181 47 259 28 424-34v395H0Z" fill="#8a9fb7"/>
-  <rect x="45" y="237" width="305" height="504" fill="#4f6886"/><rect x="465" y="289" width="293" height="452" fill="#536f8b"/>
-  <rect x="112" y="305" width="174" height="247" rx="84" fill="#f4dca8"/><rect x="516" y="351" width="176" height="201" rx="84" fill="#f4dca8"/>
-  <path d="M199 305v247M112 440h174M604 351v201M516 456h176" stroke="#4f6886" stroke-width="11"/>
-  <path d="M142 570c19-33 43-47 60-47s42 14 59 47v87H142Z" fill="#f2a879"/><circle cx="201" cy="488" r="36" fill="#e8a67f"/><path d="M165 486c-4-37 14-57 39-58 27-1 45 21 37 54-21-4-50-9-76 4Z" fill="#293e56"/>
-  <path d="M544 569c21-30 43-46 61-46s42 15 59 46v88H544Z" fill="#7aa7a3"/><circle cx="604" cy="491" r="36" fill="#d99575"/><path d="M568 492c-5-41 16-59 38-59 28 0 45 21 39 54-20-4-51-9-77 5Z" fill="#2b405a"/>
-  <path d="M0 688c162-36 338-18 459-48 142-36 232-28 341-20v180H0Z" fill="#344f6d"/>
-  <path d="M305 270c71-53 137-51 199 1" fill="none" stroke="#f9e8af" stroke-width="5" stroke-linecap="round" stroke-dasharray="3 17"/>
-  <circle cx="396" cy="218" r="12" fill="#f9e8af"/><circle cx="412" cy="244" r="6" fill="#f9e8af"/>
-  <path d="M91 739h194m241 0h194" stroke="#a4b7c7" stroke-width="7" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x2="1" y2="1"><stop stop-color="#071640"/><stop offset=".52" stop-color="#2732a0"/><stop offset="1" stop-color="#5b216e"/></linearGradient>
+    <radialGradient id="cyan"><stop stop-color="#b7fff5"/><stop offset=".2" stop-color="#53dff8"/><stop offset=".62" stop-color="#137adc" stop-opacity=".55"/><stop offset="1" stop-color="#137adc" stop-opacity="0"/></radialGradient>
+    <radialGradient id="pink"><stop stop-color="#ffbedf"/><stop offset=".2" stop-color="#ff4eab"/><stop offset=".62" stop-color="#a52ac8" stop-opacity=".55"/><stop offset="1" stop-color="#a52ac8" stop-opacity="0"/></radialGradient>
+    <linearGradient id="bridge" x2="1" y2="1"><stop stop-color="#2140a8"/><stop offset=".37" stop-color="#43d9ed"/><stop offset=".7" stop-color="#ba60f1"/><stop offset="1" stop-color="#ef4eb6"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#sky)"/>
+  <ellipse cx="345" cy="300" rx="410" ry="390" fill="url(#cyan)"/>
+  <ellipse cx="1190" cy="530" rx="445" ry="410" fill="url(#pink)"/>
+  <path d="M-120 450C108 82 405 88 597 320c176 213 210 280 375 221 195-69 323-356 588-258v261c-192-23-323 240-587 292-255 50-344-259-500-396-127-112-317-58-473 201Z" fill="url(#bridge)" opacity=".89"/>
+  <path d="M-100 697c239-159 486-198 673-112 214 98 345 272 544 162 128-71 223-206 432-159v313H-100Z" fill="#1a1e72" opacity=".72"/>
+  <path d="M83 411c188-211 369-203 495-83 104 99 179 268 347 258 159-9 269-198 476-221" fill="none" stroke="#c9fff8" stroke-opacity=".34" stroke-width="36" filter="url(#soft)"/>
+  <ellipse cx="704" cy="233" rx="330" ry="125" fill="#5e68d5" opacity=".28" filter="url(#soft)"/>
 </svg>
