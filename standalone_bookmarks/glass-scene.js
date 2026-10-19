@@ -7,10 +7,10 @@ const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const saveData = navigator.connection?.saveData;
 const lowMemory = navigator.deviceMemory && navigator.deviceMemory <= 2;
 const palettes = {
-  anxiety: ['#76e0c7', '#bbb4ff', '#e3ffef'],
-  loneliness: ['#7598ef', '#f5a8d6', '#deecff'],
-  'low-mood': ['#be75a9', '#ffc96d', '#ffdeeb'],
-  overload: ['#ff9a7b', '#8fe2d5', '#ffe3bd']
+  anxiety: ['#35bda8', '#8b79db', '#b9f7df'],
+  loneliness: ['#6287d9', '#d878b5', '#d4e3ff'],
+  'low-mood': ['#ae609a', '#e5ae52', '#f9cddd'],
+  overload: ['#ee8668', '#6ac5b3', '#ffdcad']
 };
 
 if (!motionPreference.matches && !saveData && !lowMemory && palettes[theme]) {
@@ -77,7 +77,7 @@ function startScene(THREE) {
     color: colors[0],
     metalness: 0,
     roughness: .075,
-    transmission: .95,
+    transmission: .82,
     thickness: 1.15,
     ior: 1.37,
     attenuationColor: new THREE.Color(colors[1]),
@@ -89,7 +89,7 @@ function startScene(THREE) {
   const edge = new THREE.MeshBasicMaterial({
     color: colors[1],
     transparent: true,
-    opacity: .22,
+    opacity: .38,
     side: THREE.DoubleSide,
     depthWrite: false
   });
