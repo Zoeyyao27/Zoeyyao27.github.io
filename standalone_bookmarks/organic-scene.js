@@ -55,34 +55,62 @@ function createScene(field, index) {
   clip.append(clipPath);
   definitions.append(clip);
 
-  const halo = svgElement('path', { class: 'organic-halo', d: shapePath(baseRadii, 1.13) });
+  const halo = svgElement('path', { class: 'organic-halo', d: shapePath(baseRadii, 1.18) });
+  const echo = svgElement('path', { class: 'organic-echo', d: shapePath(baseRadii, 1.07) });
   const image = svgElement('image', {
     href: fallback.getAttribute('src'),
     x: '0', y: '0', width: '600', height: '600',
     preserveAspectRatio: 'xMidYMid slice',
     'clip-path': `url(#${clipId})`
   });
-  svg.append(definitions, halo, image);
+  svg.append(definitions, halo, echo, image);
   host.append(svg);
   field.classList.add('organic-ready');
 
   let progress = 0;
   let target = 0;
   let frame = 0;
+  let visible = false;
 
-  function draw() {
+  function draw(time) {
     frame = 0;
-    progress += (target - progress) * .11;
-    const radii = baseRadii.map((radius, point) => radius + Math.sin(point * 2.4 + index) * .13 * progress);
-    clipPath.setAttribute('d', shapePath(radii));
-    halo.setAttribute('d', shapePath(radii, 1.13));
-    if (Math.abs(target - progress) > .003) frame = requestAnimationFrame(draw);
+    if (!visible || document.hidden) return;
+    progress += (target - progress) * .06;
+    const seconds = time / 1000;
+    const front = baseRadii.map((radius, point) => radius
+      + Math.sin(seconds * .52 + point * 1.8 + index) * .025
+      + Math.sin(point * 2.4 + index) * .11 * progress);
+    const back = baseRadii.map((radius, point) => radius
+      + Math.sin(seconds * .34 + point * 1.35 + index + 1.5) * .06
+      + Math.cos(point * 1.7 + index) * .1 * progress);
+    const middle = baseRadii.map((radius, point) => radius
+      + Math.sin(seconds * .43 + point * 1.5 + index + 3) * .04
+      - Math.sin(point * 2 + index) * .05 * progress);
+    clipPath.setAttribute('d', shapePath(front));
+    halo.setAttribute('d', shapePath(back, 1.2));
+    echo.setAttribute('d', shapePath(middle, 1.09));
+    frame = requestAnimationFrame(draw);
+  }
+
+  function resume() {
+    if (visible && !document.hidden && !frame) frame = requestAnimationFrame(draw);
   }
 
   function setActive(active) {
     target = active ? 1 : 0;
-    if (!frame) frame = requestAnimationFrame(draw);
+    resume();
   }
+
+  const observer = new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    if (visible) resume();
+    else if (frame) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+    }
+  });
+  observer.observe(field);
+  document.addEventListener('visibilitychange', resume);
 
   field.addEventListener('pointerenter', () => setActive(true));
   field.addEventListener('pointerleave', () => setActive(false));
@@ -93,10 +121,37 @@ function createScene(field, index) {
   field.parentElement.addEventListener('focusout', () => setActive(false));
 }
 
-if (!motionPreference.matches && !navigator.connection?.saveData) {
+if (!motionPreference.matches && !navigator.connection?.saveData && 'IntersectionObserver' in window) {
   document.querySelectorAll('.art-field').forEach((field, index) => {
     const image = field.querySelector('.organic-fallback');
     if (image.complete) createScene(field, index);
     else image.addEventListener('load', () => createScene(field, index), { once: true });
   });
+}
+
+if (!motionPreference.matches && !navigator.connection?.saveData && 'IntersectionObserver' in window) {
+  const sections = document.querySelectorAll('.reading > section');
+  document.body.classList.add('has-scroll-effects');
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    }
+  }, { threshold: .12 });
+  sections.forEach((section) => observer.observe(section));
+
+  let scrollFrame = 0;
+  function updateParallax() {
+    scrollFrame = 0;
+    const reading = document.querySelector('.reading');
+    if (!reading) return;
+    const offset = Math.max(-90, Math.min(90, reading.getBoundingClientRect().top * -.08));
+    reading.style.setProperty('--parallax', `${offset}px`);
+  }
+  addEventListener('scroll', () => {
+    if (!scrollFrame) scrollFrame = requestAnimationFrame(updateParallax);
+  }, { passive: true });
+  updateParallax();
 }

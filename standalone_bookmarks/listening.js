@@ -21,7 +21,7 @@
     en: {
       kicker: 'GIMFLOW · A 90-SECOND LISTENING SPACE',
       enter: 'Enter the experience ↗',
-      gateHint: 'Hover over or touch the artwork to see it shift. Music starts when you enter.',
+      gateHint: 'The artwork moves gently with you. Music starts when you enter.',
       scrollCue: 'SCROLL TO READ ↓',
       ready: 'Ready to listen',
       loading: 'Loading music…',
@@ -50,7 +50,7 @@
     zh: {
       kicker: 'GIMFLOW · 90 秒聆听空间',
       enter: '进入梦境 ↗',
-      gateHint: '将鼠标移到画面上或轻触画面，形状便会舒展；点击进入后音乐开始。',
+      gateHint: '画面会轻轻流动；点击进入后音乐开始。',
       scrollCue: '向下滑动阅读 ↓',
       ready: '准备聆听',
       loading: '音乐加载中…',

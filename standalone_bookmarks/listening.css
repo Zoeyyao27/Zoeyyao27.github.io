@@ -113,3 +113,158 @@ input[type="range"] { accent-color: var(--accent-ink); cursor: pointer; }
   .enter { transition: none; }
   .organic-scene svg { animation: none; }
 }
+
+body {
+  --night: #191a29;
+  --night-light: #232537;
+  --cream: #fff8eb;
+  color-scheme: dark;
+  background: var(--night);
+  color: var(--cream);
+}
+body[data-theme="anxiety"] { --accent: #1c55c7; --accent-soft: #91b8ff; --halo: #346bea; --echo: #b1c8ff; --wash: #1c315d; }
+body[data-theme="loneliness"] { --accent: #c71c55; --accent-soft: #ff9cbe; --halo: #f44681; --echo: #ffb3d1; --wash: #512339; }
+body[data-theme="low-mood"] { --accent: #c7381c; --accent-soft: #ffdb71; --halo: #f4b945; --echo: #ffdd85; --wash: #573824; }
+body[data-theme="overload"] { --accent: #1cc78e; --accent-soft: #91f3cf; --halo: #39d3a3; --echo: #b6f5d8; --wash: #21483e; }
+
+.site-header { color: var(--cream); }
+.brand:first-letter, .dream-kicker, .scroll-cue, .section-mark { color: var(--accent-soft); }
+.site-header button { border-color: #ffffff69; background: #27293bcc; color: var(--cream); }
+.site-header button:hover { border-color: var(--accent-soft); }
+.gateway, .dream-hero {
+  background-color: var(--night);
+  background-image:
+    radial-gradient(circle at 12% 20%, #ffe1a9 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 16%, #fff3d0 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 63% 73%, #ffe1a9 0 1px, transparent 2px),
+    radial-gradient(circle at 39% 83%, #a9b7ff 0 1px, transparent 2px),
+    radial-gradient(circle at 86% 64%, #fff3d0 0 1px, transparent 2px),
+    radial-gradient(ellipse at 76% 46%, var(--wash), transparent 54%);
+  background-size: 370px 290px, 510px 390px, 620px 480px, 470px 370px, 590px 440px, auto;
+}
+.gateway::after, .dream-hero::after {
+  position: absolute;
+  right: 7%;
+  top: 21%;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--accent-soft);
+  border-radius: 50%;
+  content: "";
+  opacity: .8;
+  pointer-events: none;
+  animation: star-bob 9s ease-in-out infinite;
+}
+.gateway h2, .hero-copy h1 { color: var(--cream); }
+.gateway-copy p, .hero-line { color: #e9e5e5; }
+.enter { border-color: var(--accent-soft); background: var(--accent); color: #fff; box-shadow: 0 10px 30px #0003; }
+.enter:hover { background: var(--halo); }
+.gate-hint { color: #cbcbd5; }
+.hero-tip { border-top-color: var(--accent-soft); color: var(--cream); }
+.dream-hero .hero-tip { display: none; }
+.art-field::before { background: var(--halo); opacity: .23; filter: blur(80px); }
+.organic-fallback { border: 14px solid var(--halo); background: var(--halo); }
+.organic-halo { fill: var(--halo); opacity: .76; }
+.organic-echo { fill: var(--echo); opacity: .82; }
+.organic-scene svg { filter: drop-shadow(0 30px 32px #08091077); }
+
+.reading {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--night);
+  background-image: radial-gradient(ellipse at 15% 26%, var(--wash), transparent 36%), linear-gradient(180deg, var(--night) 0%, var(--night-light) 53%, var(--night) 100%);
+}
+.reading::before, .reading::after {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  transform: translateY(var(--parallax, 0px));
+}
+.reading::before {
+  top: 5%;
+  right: -12%;
+  width: min(55vw, 730px);
+  height: min(55vw, 730px);
+  border: 1px solid var(--accent-soft);
+  border-radius: 46% 54% 62% 38% / 48% 39% 61% 52%;
+  opacity: .28;
+}
+.reading::after {
+  top: 34%;
+  left: -11%;
+  width: min(39vw, 530px);
+  height: min(39vw, 530px);
+  border: 2px solid var(--accent-soft);
+  border-radius: 58% 42% 53% 47% / 42% 54% 46% 58%;
+  opacity: .2;
+  transform: translateY(calc(var(--parallax, 0px) * -.7));
+}
+.reading > section, .reading > .footnote, .reading > .home-link { position: relative; z-index: 1; }
+.reflection { padding-left: clamp(0px, 8vw, 90px); }
+.reflection::after, .practice::after {
+  position: absolute;
+  z-index: -1;
+  color: var(--accent-soft);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+.reflection::after { right: 3%; top: -48px; content: "✳"; font-size: clamp(70px, 11vw, 145px); opacity: .22; }
+.practice::after { right: 6%; bottom: -70px; content: "✦"; font-size: clamp(80px, 12vw, 150px); opacity: .18; }
+.reflection h2, .practice h2 { color: var(--cream); }
+.encouragement { color: #e6e2e7; }
+.practice { border-top-color: #ffffff42; }
+.steps li { border-top-color: var(--accent-soft); color: #e7e4e9; }
+.steps li::before { color: var(--accent-soft); }
+.imagery {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ffffff4d;
+  border-radius: 28px;
+  background: linear-gradient(125deg, var(--wash), #292a3c);
+}
+.imagery::after {
+  position: absolute;
+  right: -35px;
+  bottom: -95px;
+  width: 260px;
+  height: 260px;
+  border: 2px solid var(--accent-soft);
+  border-radius: 42% 58% 48% 52% / 55% 43% 57% 45%;
+  content: "";
+  opacity: .55;
+  pointer-events: none;
+}
+.imagery p { position: relative; z-index: 1; }
+.credits { border-top-color: #ffffff42; color: #e2e0e4; }
+.footnote, footer { color: #c5c5d1; }
+.home-link { border-bottom-color: var(--accent-soft); color: var(--accent-soft); }
+footer { border-top-color: #ffffff36; background: #141521; }
+.player { border-color: #ffffff32; background: #292a3dee; color: var(--cream); box-shadow: 0 12px 35px #08091080; }
+.play { background: var(--accent); color: #fff; }
+.play:hover { background: var(--halo); }
+.audio-details summary, .controls, .volume { color: #e1deea; }
+input[type="range"] { accent-color: var(--accent-soft); }
+.retry { border-color: #ffffff88; color: var(--cream); }
+
+.has-scroll-effects .reading > section { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+.has-scroll-effects .reading > section.in-view { opacity: 1; transform: translateY(0); }
+.has-scroll-effects .steps li { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.has-scroll-effects .practice.in-view .steps li { opacity: 1; transform: translateY(0); }
+.has-scroll-effects .practice.in-view .steps li:nth-child(2) { transition-delay: .12s; }
+.has-scroll-effects .practice.in-view .steps li:nth-child(3) { transition-delay: .24s; }
+@keyframes star-bob { 50% { transform: translateY(-11px); opacity: .4; } }
+
+@media (max-width: 800px) {
+  .gateway::after, .dream-hero::after { right: 10%; top: 46%; }
+  .reflection { padding-left: 0; }
+  .reflection::after, .practice::after { right: 0; opacity: .12; }
+  .reading::before { right: -30%; width: 85vw; height: 85vw; }
+  .reading::after { left: -40%; width: 75vw; height: 75vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gateway::after, .dream-hero::after { animation: none; }
+  .has-scroll-effects .reading > section, .has-scroll-effects .steps li { opacity: 1; transform: none; transition: none; }
+}
