@@ -70,3 +70,27 @@ body[data-theme="overload"]{--hero-top:#ffecdc;--hero-bottom:#e2f7e9;--hero-glow
 @media(max-width:700px){.site-header{padding:19px 23px}.gateway-copy,.hero-copy{padding:135px 25px 102px}.gateway h2,.hero-copy h1{font-size:clamp(48px,14vw,80px)}.gateway-copy p,.hero-line{font-size:clamp(23px,6vw,33px)}.dream-veil{background:linear-gradient(0deg,#fffdf3e8 0%,#fffdf3ad 54%,#ffffff2b 100%)}.deco.flower{top:17%;right:8%}.deco.star{top:43%;right:12%}.deco.bubble{top:27%;right:41%}.deco.glint{top:68%;right:9%}.deco.heart{display:none}.scroll-cue{margin-top:54px}.reading{padding:70px 23px 150px}.practice{margin-top:75px}.steps{grid-template-columns:1fr}.steps li{min-height:0;gap:12px}.imagery{margin-top:50px;padding:29px 25px}.credits{margin-top:66px}footer{padding:24px 23px}}
 @media(max-width:420px){.gateway-copy,.hero-copy{padding-bottom:90px}.dream-kicker{letter-spacing:.15em}.enter{font-size:15px}.player{bottom:12px;right:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dream-art,.deco,.enter{animation:none!important;transition:none!important}}
+
+.gateway,.dream-hero{background:var(--hero-top)}
+.dream-art{opacity:1;filter:none;mix-blend-mode:normal;animation:none!important}
+.dream-veil{background:linear-gradient(90deg,#fffdf8dc 0%,#fffdf8b8 35%,#ffffff00 72%),linear-gradient(0deg,#fffdf86e,transparent 55%)}
+.dream-decor{display:none}
+.glass-stage{position:absolute;z-index:0;inset:0;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
+.glass-stage.is-ready{opacity:1}
+.glass-stage[hidden]{display:none}
+.glass-stage canvas{display:block;width:100%;height:100%}
+.gateway-copy,.hero-copy{width:min(100%,1320px);padding-bottom:clamp(70px,9vh,105px)}
+.gateway h2,.hero-copy h1{max-width:670px;font-size:clamp(51px,7.1vw,96px);letter-spacing:-.058em}
+.gateway-copy p,.hero-line{max-width:570px;font-size:clamp(22px,2.6vw,32px)}
+.dream-kicker,.scroll-cue{letter-spacing:.15em}
+.enter{background:#ffffffdb;border-color:#ffffff;box-shadow:0 18px 45px #3e4f7124}
+.site-header button{background:#ffffffd1}
+.reading{position:relative;background:radial-gradient(circle at 96% 9%,var(--reading-glow),transparent 31%),var(--reading-bg)}
+.steps li{background:#ffffffd6;border-radius:24px}
+.imagery{border-radius:24px}
+body[data-theme="anxiety"]{--hero-ink:#244f51;--reading-accent:#307b69}
+body[data-theme="loneliness"]{--hero-ink:#394b78;--reading-accent:#6270ae}
+body[data-theme="low-mood"]{--hero-ink:#65475b;--reading-accent:#a76083}
+body[data-theme="overload"]{--hero-ink:#674a48;--reading-accent:#ae735d}
+@media(max-width:700px){.dream-veil{background:linear-gradient(0deg,#fffdf8eb 0%,#fffdf8b8 36%,#ffffff00 80%)}.gateway-copy,.hero-copy{padding-top:125px;padding-bottom:98px}.gateway h2,.hero-copy h1{font-size:clamp(48px,12vw,75px)}.gateway-copy p,.hero-line{font-size:clamp(21px,5.5vw,29px)}}
+@media(prefers-reduced-motion:reduce){.glass-stage{display:none!important}}
