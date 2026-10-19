@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Tangled paths becoming one clear line beside a seated figure">
+  <rect width="800" height="800" fill="#f0c887"/>
+  <circle cx="625" cy="168" r="88" fill="#fff0bb"/>
+  <path d="M0 570c185-46 337-45 467-15 126 29 231 21 333-16v261H0Z" fill="#df9b62"/>
+  <path d="M0 682c204-29 337-6 487-23 113-13 224-10 313 14v127H0Z" fill="#a55b4b"/>
+  <path d="M98 92c65 71 112 77 150 34 36-42 94-41 119 8 30 62-52 104-18 149 40 52 104-20 153 17 35 26 25 79-25 102" fill="none" stroke="#d96b4b" stroke-width="18" stroke-linecap="round"/>
+  <path d="M151 188c40-26 75-13 93 28 28 63 110 54 141 17m-290 89c74-45 111-30 141 25 25 46 91 45 130 20" fill="none" stroke="#fff2cd" stroke-width="13" stroke-linecap="round"/>
+  <path d="M489 408c112 2 149 47 149 118 0 70-68 94-126 103" fill="none" stroke="#316759" stroke-width="23" stroke-linecap="round"/>
+  <path d="m508 628 30-34m-30 34 40 23" fill="none" stroke="#316759" stroke-width="16" stroke-linecap="round"/>
+  <rect x="89" y="459" width="95" height="136" rx="4" fill="#f6dfac" transform="rotate(-12 89 459)"/><rect x="150" y="427" width="94" height="137" rx="4" fill="#fff1c8" transform="rotate(9 150 427)"/>
+  <path d="M214 646c18-69 74-119 138-119s121 60 126 140Z" fill="#386d5f"/>
+  <circle cx="353" cy="457" r="67" fill="#dc9b70"/>
+  <path d="M284 459c-7-64 27-100 75-101 45-1 80 38 68 95-45-11-87-24-112-57-3 27-13 47-31 63Z" fill="#39403b"/>
+  <path d="M303 516c17 17 79 18 102-3" fill="none" stroke="#cb8c67" stroke-width="11" stroke-linecap="round"/>
+  <path d="M0 748c170-23 316-8 464-24 143-16 245-14 336 11" fill="none" stroke="#efbd78" stroke-width="7"/>
+</svg>

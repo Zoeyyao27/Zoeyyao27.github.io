@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="A quiet figure watching a sunrise over soft hills">
+  <rect width="800" height="800" fill="#dfc5ba"/>
+  <circle cx="515" cy="299" r="161" fill="#f6d280"/>
+  <path d="M0 441c154-84 291-102 430-38 130 60 237 72 370 9v388H0Z" fill="#e4a18d"/>
+  <path d="M0 536c138-62 278-44 414-2 143 45 257 1 386-27v293H0Z" fill="#b66e6b"/>
+  <path d="M0 650c170-55 325-37 474-6 113 23 220 21 326-16v172H0Z" fill="#725d6e"/>
+  <ellipse cx="290" cy="716" rx="188" ry="31" fill="#574b58" opacity=".3"/>
+  <path d="M175 650c10-69 67-126 120-126 70 0 122 74 128 156l-221 18Z" fill="#6b596b"/>
+  <path d="M279 538c-51-17-69-86-39-127 26-35 76-44 113-15 42 33 45 92 8 127Z" fill="#e6a278"/>
+  <path d="M213 458c-18-70 19-116 78-117 59-1 96 43 83 104-33-17-80-12-109-37-8 27-26 40-52 50Z" fill="#353d48"/>
+  <path d="M267 522c38 14 65 7 94-10" fill="none" stroke="#d18b6a" stroke-width="12" stroke-linecap="round"/>
+  <path d="M208 619c-41 16-70 43-78 80m247-75c40 15 73 39 93 67" fill="none" stroke="#e6a278" stroke-width="30" stroke-linecap="round"/>
+  <path d="M587 705V568m0 76c-38-38-67-47-96-45m96-14c39-52 70-59 93-59" fill="none" stroke="#4c735e" stroke-width="11" stroke-linecap="round"/>
+  <path d="M493 600c-7-43-3-65 22-79 27 25 24 50-22 79Zm184-70c-10-45-1-67 25-78 22 29 18 51-25 78Z" fill="#638b6d"/>
+  <path d="M555 571c8-44 24-62 51-61 10 37-3 57-51 61Z" fill="#789d78"/>
+</svg>

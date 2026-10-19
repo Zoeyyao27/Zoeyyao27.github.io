@@ -14,7 +14,12 @@
 
   const text = {
     en: {
-      intro: 'GIMFlow selected and arranged these recordings in advance for this theme. Find a comfortable position and tap play when ready.',
+      intro: 'A small space to pause. Read at your own pace while the music plays.',
+      eyebrow: 'GIMFLOW / LISTENING POSTCARDS',
+      posterAction: 'LISTEN · READ · BREATHE',
+      posterDuration: '90 SECONDS',
+      listeningMark: 'BACKGROUND MUSIC',
+      listeningDescription: 'Let the music accompany the words.',
       ready: 'Tap to play · about 90 seconds',
       loading: 'Loading audio, please wait…',
       playing: 'Listening',
@@ -37,7 +42,12 @@
       creditsIntro: 'Arranged from two recordings by these artists:'
     },
     zh: {
-      intro: '这段音乐由 GIMFlow 按主题预先挑选、编排。找个舒适的姿势，准备好后点播放。',
+      intro: '给自己一点停留的空间。让音乐伴着文字，按照自己的节奏阅读。',
+      eyebrow: 'GIMFLOW / 聆听明信片',
+      posterAction: '聆听 · 阅读 · 呼吸',
+      posterDuration: '约 90 秒',
+      listeningMark: '背景音乐',
+      listeningDescription: '让音乐轻轻陪伴这些文字。',
       ready: '点一下播放 · 约 90 秒',
       loading: '音乐加载中，请稍候…',
       playing: '正在聆听',
@@ -88,6 +98,11 @@
     $('player').setAttribute('aria-label', lang === 'zh' ? '音乐播放器' : 'Music player');
     $('imagerySection').setAttribute('aria-label', copy.imageryMark);
     $('intro').textContent = copy.intro;
+    $('eyebrow').textContent = copy.eyebrow;
+    $('posterAction').textContent = copy.posterAction;
+    $('posterDuration').textContent = copy.posterDuration;
+    $('listeningMark').textContent = copy.listeningMark;
+    $('listeningDescription').textContent = copy.listeningDescription;
     $('reflectionMark').textContent = copy.reflectionMark;
     $('reflectionHeading').textContent = copy.reflectionHeading;
     $('practiceMark').textContent = copy.practiceMark;
