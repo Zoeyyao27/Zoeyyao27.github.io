@@ -1,0 +1,7 @@
+.cv-top{display:flex;align-items:flex-start;gap:24px}
+.cv-identity{min-width:0}
+.cv-top-side{display:flex;flex:0 0 auto;flex-direction:column;align-items:flex-end;gap:10px}
+.cv-profile{display:block;width:116px;height:150px;object-fit:cover;object-position:center top;border:1px solid var(--line);border-radius:12px;background:#fff}
+.cv-research-focus{font-weight:700;color:var(--dark)}
+@media(max-width:650px){.cv-shell{width:calc(100% - 32px)}.cv-top{display:grid;grid-template-columns:minmax(0,1fr) 88px;gap:14px;align-items:start}.cv-top-side{display:contents}.cv-profile{grid-column:2;grid-row:1;width:88px;height:116px}.cv-toolbar{grid-column:1/-1;grid-row:2;justify-content:flex-start;margin-top:0}.cv-top h1{font-size:34px}}
+@media print{.cv-profile{width:95px;height:126px}}
